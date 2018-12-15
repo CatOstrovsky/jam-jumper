@@ -23,6 +23,7 @@ export default class Score {
 
 	addScore(total: number) : void {
 		this._score += total
+		console.log(this._score)
 		this.sync()
 	}
 

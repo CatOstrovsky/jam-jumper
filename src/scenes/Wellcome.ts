@@ -6,6 +6,7 @@
 import Config from "../const/config"
 import * as _ from 'lodash'
 import Snow from '../classes/Snow'
+import Helper from '../classes/Helper'
 
 export class Wellcome extends Phaser.Scene {
 
@@ -40,7 +41,7 @@ export class Wellcome extends Phaser.Scene {
       yoyo: 1
     })
 
-    let title = this.add.dynamicBitmapText(Config.width/2, Config.height/2 - 200, 'main', `JAM JUMPER`, 50).setOrigin(.5,.5);
+    let title = this.add.dynamicBitmapText(20, Config.height/2 - 200, 'main', `JAM JUMPER`, 50)
     this.add.tween({
       targets: [title],
       duration: 1000,
@@ -60,6 +61,72 @@ export class Wellcome extends Phaser.Scene {
       repeat: -1
     })
 
+    Helper.drawHUD(this)
+    this.add.image(Config.width - 70, 10, 'ui', 'ico_05').setOrigin(1, 0).setScale(.12).setInteractive()
+    .on('pointerdown', () => {
+      this.add.tween({
+        targets: [this.cameras.main],
+        duration: 300,
+        scrollX: Config.width
+      })
+    })
+
+    this.add.image(Config.width - 125, 8, 'ui', 'ico_03').setOrigin(1, 0).setScale(.12).setInteractive()
+    .on('pointerdown', () => {
+      this.add.tween({
+        targets: [this.cameras.main],
+        duration: 300,
+        scrollY: Config.height
+      })
+    })
+
+    this.drawShop()
+    this.drawInfo()
+  }
+  drawInfo() {
+      let infoWrapper = this.add.container(Config.width/2, Config.height/2 + Config.height),
+      infoWindow = this.add.image(0,0, 'popup').setOrigin(.5).setScale(.4),
+      graphic = this.add.graphics().setPosition(-1 * (Config.width/2), -1 * (Config.height/2))
+
+      graphic.fillStyle(0x72cdfa, 1)
+      graphic.fillRect(0,0, Config.width, Config.height)
+
+      infoWrapper.add(graphic)
+      infoWrapper.add(infoWindow)
+
+      let close = this.add.image((-1 * Config.width/2) + 20, 20, 'arrow').setOrigin(1,1).setInteractive().setFlipX(true).setAngle(-90);
+      close.on('pointerdown', () => {
+        this.add.tween({
+          targets: [this.cameras.main],
+          duration: 300,
+          scrollX: 0
+        })
+      })
+
+      infoWrapper.add(close)
+  }
+
+  drawShop() {
+      let shopWrapper = this.add.container(Config.width/2 + Config.width, Config.height/2),
+      shopWindow = this.add.image(0,0, 'popup').setOrigin(.5).setScale(.4),
+      graphic = this.add.graphics().setPosition(-1 * (Config.width/2), -1 * (Config.height/2))
+
+      graphic.fillStyle(0x72cdfa, 1)
+      graphic.fillRect(0,0, Config.width, Config.height)
+
+      shopWrapper.add(graphic)
+      shopWrapper.add(shopWindow)
+
+      let close = this.add.image((-1 * Config.width/2) + 20, Config.height/2 - 20, 'arrow').setOrigin(1,1).setInteractive().setFlipX(true);
+      close.on('pointerdown', () => {
+        this.add.tween({
+          targets: [this.cameras.main],
+          duration: 300,
+          scrollX: 0
+        })
+      })
+
+      shopWrapper.add(close)
   }
 
 

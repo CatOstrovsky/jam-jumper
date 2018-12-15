@@ -7,6 +7,7 @@ export default class Hero {
 	private _directionY: number = 0
  	private _keyboard: Phaser.Input.Keyboard.CursorKeys
  	private _timeout: any = 0
+ 	private _life : boolean = true
 
 	constructor(ctx) {
 		this._ctx = ctx;
@@ -26,7 +27,10 @@ export default class Hero {
 			angle: 10,
 			repeat: -1,
 			yoyo: 1
-		})
+		});
+
+
+		this._ctx.physics.add.collider(this._ctx.stage, this.body, null, this.stageCollider, this)
 
 	}
 
@@ -46,7 +50,41 @@ export default class Hero {
 		return true
 	}
 
+	kill() {
+		if(!this._life) return;
+
+		this.body.setMaxVelocity(0,0).setVelocityY(0).setVelocityX(0)
+		this._life = false
+
+		this._ctx.add.tween({
+			targets: [this.body],
+			duration: 1500,
+			x: Config.width/2,
+			y: Config.height/2,
+			onComplete: () => {
+				this._ctx.add.tween({
+					targets: [this.body],
+					duration: 1500,
+					scaleX: 50,
+					scaleY: 50,
+					angle: 1000
+				})
+
+				this._ctx.add.tween({
+					targets: [this._ctx.cameras.main],
+					alpha: .5,
+					duration: 1200,
+					onComplete: () => {
+						this._ctx.scene.start('wellcome')
+					}
+				})
+			}
+		})
+	}
+
 	update() {
+		if(!this._life) return;
+
 		if(this.body.body.position.x >= Config.width - this.body.displayWidth && this.body.body.velocity.x > 0) {
 			this.body.setVelocityX(-250)
 			this.body.setFlipX(false)
@@ -70,7 +108,7 @@ export default class Hero {
 			}else if(this._keyboard.up.isDown) {
 				if(this._ctx.getUserLevel() == this._ctx.linesY.length) return;
 
-				this.body.setVelocityY(-550)
+				this.body.setVelocityY(-440)
 				this._directionY = 1
 
 				this._ctx.add.tween({

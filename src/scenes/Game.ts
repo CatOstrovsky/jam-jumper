@@ -9,6 +9,8 @@ import Snow from '../classes/Snow'
 import Score from '../objects/Score'
 import Hero from '../objects/Hero'
 import Enemy from '../objects/Enemy'
+import Gift from '../objects/Gift'
+import Helper from '../classes/Helper'
 
 export class Game extends Phaser.Scene {
 
@@ -17,8 +19,9 @@ export class Game extends Phaser.Scene {
   private _layers : Array<Phaser.GameObjects.Image> = []
   private _snow: Snow = null
   public score: Score = null
-  private _hero: Hero = null
+  public hero: Hero = null
   public enemy: Enemy = null
+  public gift: Gift = null
 
   constructor() {
 		super({
@@ -37,23 +40,25 @@ export class Game extends Phaser.Scene {
 	
 	this.drawStage()
 
-	this._hero = new Hero(this)
-	this.physics.add.collider(this.stage, this._hero.body, null, this._hero.stageCollider, this._hero)
+	this.hero = new Hero(this)
 
 	this.enemy = new Enemy(this)
-	setInterval(() => this.enemy.addEnemy() , 1000)
+	let timeEnemy = setInterval(() => {
+		if(!this.enemy) return clearInterval(timeEnemy)
+		this.enemy.addEnemy() 
+	}, 3000)
+
+	this.gift = new Gift(this)
+	let timerGift = setInterval(() => { 
+		if(!this.gift) return clearInterval(timerGift)
+		this.gift.addGift() 
+	}, 3000)
 
 	this._snow = new Snow(this);
-	this.drawHUD()
+	Helper.drawHUD(this)
 	this.score = new Score(this);
 
 	this._layers.push( this.add.image(Config.width/2, Config.height + 50, 'footer-snow').setOrigin(.5, 1) )
-  }
-
-  drawHUD() {
-  		this.add.image(-20, 0, "ui@line").setOrigin(0,0).setDisplaySize(Config.width + 30, 20)
-		this.add.image(Config.width - 10, 10, 'ui', 'ico_04').setOrigin(1, 0).setScale(.12)
-		this.add.image(Config.width - 10, 10, 'ui', 'ico_04').setOrigin(1, 0).setScale(.12)
   }
 
   drawStage() {
@@ -75,7 +80,7 @@ export class Game extends Phaser.Scene {
 		for(let index in this.linesY) {
 			let y = this.linesY[index]
 
-			if(this._hero.body.body.position.y < y)
+			if(this.hero.body.body.position.y < y)
 				level = parseInt(index) + 1 
 		}
 
@@ -84,7 +89,7 @@ export class Game extends Phaser.Scene {
 
 
   update() : void {
-		this._hero.update()
+		this.hero.update()
 		this._snow.dragSnow()
 		this.enemy.update()
   }

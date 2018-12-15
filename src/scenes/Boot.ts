@@ -35,6 +35,10 @@ export class Boot extends Phaser.Scene {
     this.load.atlas('enemy', 'assets/images/enemies/sprites.png', 'assets/images/enemies/sprites.json')
     this.load.atlas('boost', 'assets/images/boosts/sprites.png', 'assets/images/boosts/sprites.json')
 
+    this.load.image('popup', 'assets/images/ui/popup.png')
+    this.load.image('popup_lare', 'assets/images/ui/popup_lare.png')
+    this.load.image('arrow', 'assets/images/arrow.png')
+
     this.drawProgress()
 
   }

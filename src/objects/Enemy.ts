@@ -17,8 +17,13 @@ export default class Hero {
 
 
 		this._ctx.physics.add.collider(this._ctx.stage, this._stack)
-
+		this._ctx.physics.add.collider(this._ctx.hero.body, this._stack, ()=>false, this.onCollideHero, this)
 		return this
+	}
+
+	onCollideHero(hero, body) {
+		this._ctx.hero.kill()
+		return false
 	}
 
 	addEnemy() {
@@ -31,7 +36,7 @@ export default class Hero {
 			speed = -180
 		}
 
-		this.addWarning(2000, (x > Config.width/2) ? ( x - 20) : (x + 20) , y - 50)
+		this.addWarning(1500, (x > Config.width/2) ? ( x - 20) : (x + 20) , y - 50)
 		.then(() => {
 			this._stack.get(x, y - 50, this._stack.defaultKey, `${_.random(1, 5, false)}.png`).setVelocityX(speed)
 		})
