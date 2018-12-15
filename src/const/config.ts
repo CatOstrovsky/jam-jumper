@@ -2,8 +2,8 @@ import "phaser";
 
 // Game config : GameConfig
 const config = {
-	width: window.innerHeight * .7,
-	height: window.innerHeight,
+	width: 580 * .7,
+	height: 580,
 	title: "TS Phaser3",
 	url: "https://example.com",
 	version: "1.0",

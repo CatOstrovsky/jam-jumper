@@ -8,6 +8,7 @@
 // Add basic phaser namespaces
 /// <reference path="../typescript/phaser.d.ts"/>
 
+
 import "phaser";
 import { Boot } from './scenes/Boot'
 import { Wellcome } from './scenes/Wellcome'
