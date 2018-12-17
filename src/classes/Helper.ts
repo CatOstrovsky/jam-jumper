@@ -39,7 +39,7 @@ export default class Helper {
 
     	graphic.fillStyle(0x72cdfa, 1).fillRect(0,0, Config.width, Config.height)
 
-    	let close = ctx.add.image(Config.width/2 - 80, Config.height/2 - 80, 'arrow').setOrigin(1,1).setInteractive();
+    	let close = ctx.add.image(140, 220, 'arrow').setOrigin(1,1).setInteractive();
     	close.on('pointerdown', () => ctx.add.tween({ 	targets: [ctx.cameras.main], duration: 300, scrollX: 0 }) )
 
 			let title = ctx.add.dynamicBitmapText(-140, -210, 'main', `SETTINGS`, 50),

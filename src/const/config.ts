@@ -1,9 +1,28 @@
 import "phaser";
 
 // Game config : GameConfig
+
+let height = 580,
+width = height * .7;
+
+let client = {
+	width: window.innerWidth,
+	height: window.innerHeight
+}
+
+if(client.width < 500 && client.width > 400) {
+	if(client.height > client.width) {
+		height = client.height
+		// width = client.width
+	}else{
+		height = client.width
+		// width = client.height
+	}
+}
+
 const config = {
-	width: 580 * .7,
-	height: 580,
+	width: width,
+	height: height,
 	title: "TS Phaser3",
 	url: "https://example.com",
 	version: "1.0",

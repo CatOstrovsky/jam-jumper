@@ -9,12 +9,27 @@ export default class Hero {
  	private _keyboard: Phaser.Input.Keyboard.CursorKeys
  	private _timeout: any = 0
  	public _live : boolean = true
+	private _touch: Phaser.Input.Pointer[]
+	private _lastTouchPosition: Phaser.Math.Vector2 = null
+	private _touchDirection: number = 0
 
 	constructor(ctx) {
 		this._ctx = ctx;
 		this._keyboard = this._ctx.input.keyboard.createCursorKeys()
 		this.addToStage()
+		this.initTouches()
 		return this
+	}
+
+	initTouches() {
+		this._touch = this._ctx.input.addPointer(1);
+		this._ctx.input.on('pointerdown', (event) => {
+			this._lastTouchPosition = new Phaser.Math.Vector2(event.x, event.y)
+		})
+		this._ctx.input.on('pointerup', (event) => {
+			let up = this._lastTouchPosition.y > event.y
+			this._touchDirection = (up) ? 1 : -1
+		})
 	}
 
 	addToStage() {
@@ -71,16 +86,18 @@ export default class Hero {
 		}
 
 		if(this._directionY == 0) {
-			if(this._keyboard.down.isDown) {
+			if(this._keyboard.down.isDown || this._touchDirection == -1) {
+				this._touchDirection = 0
 				if(this._ctx.getUserLevel() == 1) return;
 				this._directionY = -1
 
 				this._ctx.add.tween({ targets: [this.body], angle: 360, duration: 600 })
 
-			}else if(this._keyboard.up.isDown) {
+			}else if(this._keyboard.up.isDown || this._touchDirection == 1) {
+				this._touchDirection = 0
 				if(this._ctx.getUserLevel() == this._ctx.linesY.length) return;
 
-				this.body.setVelocityY(-440)
+				this.body.setVelocityY(Config.height/1.4 * -1)
 				this._directionY = 1
 
 				this._ctx.add.tween({ targets: [this.body], angle: 360, duration: 600 })
@@ -93,4 +110,5 @@ export default class Hero {
 			this.body.setVelocityY(0)
 		}
 	}
+
 }
