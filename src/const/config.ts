@@ -10,7 +10,7 @@ let client = {
 	height: window.innerHeight
 }
 
-if(client.width < 500 && client.width > 400) {
+if(client.width < 500) {
 	if(client.height > client.width) {
 		height = client.height
 		// width = client.width
