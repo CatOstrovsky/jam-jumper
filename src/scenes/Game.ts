@@ -37,22 +37,28 @@ export class Game extends Phaser.Scene {
   }
 
   create() : void {
-	
+
 	this.drawStage()
 
 	this.hero = new Hero(this)
 
 	this.enemy = new Enemy(this)
 	let timeEnemy = setInterval(() => {
-		if(!this.enemy) return clearInterval(timeEnemy)
-		this.enemy.addEnemy() 
-	}, 3000)
+		if(!this.hero || !this.hero._live){
+      clearInterval(timeEnemy)
+      return
+    }
+		this.enemy.addEnemy()
+	}, 2000)
 
 	this.gift = new Gift(this)
-	let timerGift = setInterval(() => { 
-		if(!this.gift) return clearInterval(timerGift)
-		this.gift.addGift() 
-	}, 3000)
+	let timerGift = setInterval(() => {
+		if(!this.hero || !this.hero._live){
+      clearInterval(timerGift)
+      return
+    }
+		this.gift.addGift()
+	}, 2000)
 
 	this._snow = new Snow(this);
 	Helper.drawHUD(this)
@@ -66,7 +72,7 @@ export class Game extends Phaser.Scene {
 		this._layers.push( this.add.image(Config.width/2, Config.height, 'layer_2').setScale(.4).setOrigin(.5, 1) )
 
 		this.stage = this.physics.add.staticGroup()
-		
+
 		for (var i = 3; i >= 1; i--){
 			let y = Config.height/4 * i;
 			this.linesY.push(y)
@@ -81,7 +87,7 @@ export class Game extends Phaser.Scene {
 			let y = this.linesY[index]
 
 			if(this.hero.body.body.position.y < y)
-				level = parseInt(index) + 1 
+				level = parseInt(index) + 1
 		}
 
 		return level

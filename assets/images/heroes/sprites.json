@@ -1,0 +1,105 @@
+{
+"frames": {
+	"bird": {
+		"frame": {"x":964, "y":0, "w":184, "h":256},
+		"spriteSourceSize": {"x":36,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"bird_1": {
+		"frame": {"x":257, "y":257, "w":256, "h":228},
+		"spriteSourceSize": {"x":0,"y":14,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"cat": {
+		"frame": {"x":514, "y":498, "w":250, "h":256},
+		"spriteSourceSize": {"x":3,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"cola": {
+		"frame": {"x":990, "y":514, "w":142, "h":256},
+		"spriteSourceSize": {"x":57,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"cola_1": {
+		"frame": {"x":976, "y":257, "w":166, "h":256},
+		"spriteSourceSize": {"x":45,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"crab": {
+		"frame": {"x":257, "y":486, "w":256, "h":256},
+		"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"deer": {
+		"frame": {"x":514, "y":257, "w":256, "h":240},
+		"spriteSourceSize": {"x":0,"y":8,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"dinosaur": {
+		"frame": {"x":257, "y":0, "w":256, "h":256},
+		"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"dog": {
+		"frame": {"x":0, "y":758, "w":256, "h":212},
+		"spriteSourceSize": {"x":0,"y":22,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"donut": {
+		"frame": {"x":0, "y":501, "w":256, "h":256},
+		"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"donut_1": {
+		"frame": {"x":0, "y":244, "w":256, "h":256},
+		"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"monkey": {
+		"frame": {"x":514, "y":755, "w":240, "h":256},
+		"spriteSourceSize": {"x":8,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"pig": {
+		"frame": {"x":771, "y":0, "w":192, "h":256},
+		"spriteSourceSize": {"x":32,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"pijama": {
+		"frame": {"x":765, "y":498, "w":210, "h":256},
+		"spriteSourceSize": {"x":23,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"pijama_2": {
+		"frame": {"x":755, "y":755, "w":234, "h":256},
+		"spriteSourceSize": {"x":11,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"rabbit": {
+		"frame": {"x":0, "y":0, "w":256, "h":243},
+		"spriteSourceSize": {"x":0,"y":7,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"shrimp": {
+		"frame": {"x":257, "y":743, "w":256, "h":245},
+		"spriteSourceSize": {"x":0,"y":5,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"teddy-bear": {
+		"frame": {"x":514, "y":0, "w":256, "h":256},
+		"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	},
+	"turtle": {
+		"frame": {"x":0, "y":971, "w":256, "h":162},
+		"spriteSourceSize": {"x":0,"y":47,"w":256,"h":256},
+		"sourceSize": {"w":256,"h":256}
+	}
+
+},
+"meta": {
+	"image": "sprites",
+	"size": {"w": 1149, "h": 1134},
+	"scale": "1"
+}
+}

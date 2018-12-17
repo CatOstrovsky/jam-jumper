@@ -27,6 +27,8 @@ export default class Gift {
 	}
 
 	addGift(num = null) {
+		if(!this._ctx.hero._live || !this._ctx.hero) return
+		
 		if(!num) num = _.random(1, 7, false)
 		let y = this._ctx.linesY[ _.random(1, this._ctx.linesY.length - 1, false) ]
 

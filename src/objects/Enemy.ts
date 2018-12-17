@@ -38,13 +38,14 @@ export default class Hero {
 
 		this.addWarning(1500, (x > Config.width/2) ? ( x - 20) : (x + 20) , y - 50)
 		.then(() => {
+			if(this._ctx.hero._live && this._ctx.hero)
 			this._stack.get(x, y - 50, this._stack.defaultKey, `${_.random(1, 5, false)}.png`).setVelocityX(speed)
 		})
 
 	}
 
 	addWarning(time:number, x = 0, y = 0) : Promise<any> {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			let warning = this._ctx.add.image(x, y, 'warning').setAngle(-20).setScale(.3)
 			this._ctx.add.tween({
 				targets: [warning],
@@ -67,7 +68,7 @@ export default class Hero {
 		let items = this._stack.getChildren()
 		for(let key in items) {
 			let item: Phaser.Physics.Arcade.Sprite = items[key] as any
-			
+
 			if(!item.active) break;
 
 			if(item.x > Config.width || item.x < 0) {

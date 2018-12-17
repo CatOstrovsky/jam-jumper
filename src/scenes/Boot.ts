@@ -18,8 +18,7 @@ export class Boot extends Phaser.Scene {
     this.load.atlas('ui', 'assets/images/ui/sprites.png', 'assets/images/ui/sprites.json')
     this.load.image('ui@line', 'assets/images/ui/line.png')
     this.load.image('line', 'assets/images/line.png')
-    
-    this.load.image('hero', 'assets/images/smile.svg')
+
     this.load.bitmapFont('main', 'assets/fonts/font.png', 'assets/fonts/font.fnt');
 
     this.load.image('layer_1', 'assets/images/layer_1.png')
@@ -29,15 +28,22 @@ export class Boot extends Phaser.Scene {
     this.load.image('snow', 'assets/images/snow.png')
     this.load.image('santa', 'assets/images/santa-claus.png')
     this.load.image('warning', 'assets/images/warning.png')
-    this.load.image('deer', 'assets/images/deer.png')
     this.load.image('footer-snow', 'assets/images/footer-snow.png')
 
+
+    this.load.atlas('hero', 'assets/images/heroes/sprites.png', 'assets/images/heroes/sprites.json')
     this.load.atlas('enemy', 'assets/images/enemies/sprites.png', 'assets/images/enemies/sprites.json')
     this.load.atlas('boost', 'assets/images/boosts/sprites.png', 'assets/images/boosts/sprites.json')
 
     this.load.image('popup', 'assets/images/ui/popup.png')
     this.load.image('popup_lare', 'assets/images/ui/popup_lare.png')
     this.load.image('arrow', 'assets/images/arrow.png')
+
+    this.load.image('hard', 'assets/images/hard.png')
+    this.load.image('audio', 'assets/images/audio.png')
+    this.load.image('sfx', 'assets/images/sfx.png')
+
+    this.load.image('locked', 'assets/images/locked.png')
 
     this.drawProgress()
 
@@ -61,7 +67,7 @@ export class Boot extends Phaser.Scene {
   }
 
   create() : void {
- 
+
   	this.scene.start('wellcome');
 
   }
