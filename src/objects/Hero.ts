@@ -97,7 +97,7 @@ export default class Hero {
 				this._touchDirection = 0
 				if(this._ctx.getUserLevel() == this._ctx.linesY.length) return;
 
-				this.body.setVelocityY(Config.height / 1.38 * -1)
+				this.body.setVelocityY(Config.height / 1.35 * -1)
 				this._directionY = 1
 
 				this._ctx.add.tween({ targets: [this.body], angle: 360, duration: 600 })

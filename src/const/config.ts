@@ -5,20 +5,20 @@ import "phaser";
 let height = 580,
 width = height * .7;
 
-let client = {
-	width: window.innerWidth,
-	height: window.innerHeight
-}
+// let client = {
+// 	width: window.innerWidth,
+// 	height: window.innerHeight
+// }
 
-if(client.width < 500) {
-	if(client.height > client.width) {
-		height = client.height
-		// width = client.width
-	}else{
-		height = client.width
-		// width = client.height
-	}
-}
+// if(client.width < 500) {
+// 	if(client.height > client.width) {
+// 		height = client.height
+// 		// width = client.width
+// 	}else{
+// 		height = client.width
+// 		// width = client.height
+// 	}
+// }
 
 const config = {
 	width: width,
