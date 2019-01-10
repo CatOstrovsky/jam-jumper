@@ -3,6 +3,12 @@
 This is clone "Jam Jumper". Based on Phaser 3
 [!!!DEMO HERE!!!](https://demo.web-panda.ru/jam-jumper/)
 
+| ![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_1.JPG) | 
+![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_2.JPG)|
+![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_3.JPG)|
+|-|-|-|
+
+
 ### Requirements
 
 We need [Node.js](https://nodejs.org) to install and run scripts.
