@@ -1,13 +1,11 @@
 # Jam Jumper game
 
 This is clone "Jam Jumper". Based on Phaser 3
-[!!!DEMO HERE!!!](https://demo.web-panda.ru/jam-jumper/)
+[!!!DEMO HERE!!!](http://catostrovsky.ru/demo/jam-jumper/)
 
-| ![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_1.JPG) | 
-![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_2.JPG)|
-![Game Screenshot](https://demo.web-panda.ru/screenshots/jam_3.JPG)|
-|-|-|-|
-
+![jam_3](https://user-images.githubusercontent.com/13501355/151675556-44ecdc22-f2f1-4de3-bd7f-ec4940f800cb.JPG)
+![jam_1](https://user-images.githubusercontent.com/13501355/151675557-fe17275e-07eb-4901-a514-faeeb8c5ee4a.JPG)
+![jam_2](https://user-images.githubusercontent.com/13501355/151675558-0a0363b6-6917-482f-8e29-3ca0f3435e19.JPG)
 
 ### Requirements
 
